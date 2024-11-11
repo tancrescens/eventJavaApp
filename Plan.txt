@@ -1,0 +1,13 @@
+Events App
+
+Inheritance:
+1. Person (Parent/ abstract)
+	1. Attendee
+	2. Befrienders
+	3. Helpers
+	4. Event Committee
+
+Person:
+	1. - firstname
+	2. - lastname
+	3. - IcNo
