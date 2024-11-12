@@ -9,9 +9,17 @@ Events App
 ==========================================================
 Core Functions
 Main function of this app is to allow
-1. committee members to create attendees' details
-2. attendees to edit their details
-
+1. Committee members to:
+	a. Get list of attendees
+	b. Create an attendee profile
+	c. Edit attendee's details
+	d. Delete attendee profile
+2. Attendees to:
+	a. View a profile based on name and IC input.
+		a. Edit their details
+4. Billing
+	a. 	Collate and buy insurance for all attendees
+		and committee members
 
 Inheritance:
 1. Person (Parent/ abstract)

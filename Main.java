@@ -54,7 +54,7 @@ public class Main {
 
     // Main Menu
     public static void displayMenu() {
-        System.out.println("");
+        System.out.println("Main Menu");
         System.out.println("====================");
         System.out.println("1. Attendee Menu");
         System.out.println("2. Event Committee Menu");
@@ -80,22 +80,24 @@ public class Main {
         return choice;
     }
 
-    // 1: Display attendee menu
-    public static void attendeeMenu() {
+    // 1: Display Event committee menu
+    public static void committeeMenu() {
+        System.out.println("Event Committee Menu");
         System.out.println("====================");
-        System.out.println("1. Get list of all numbers");
-        System.out.println("2. Get the mean of all the numbers");
-        System.out.println("3. Get the median of all the numbers");
-        System.out.println("4. Get the mode (highest frequency) of all the numbers");
+        System.out.println("1. Get list of attendees");
+        System.out.println("2. Create an attendee profile");
+        System.out.println("3. Edit attendee's details");
+        System.out.println("4. Delete attendee profile");
+        System.out.println("5. Collate all attendees and committee members for insurance coverage");
     }
 
-    // 2: Display Event committee menu
-    public static void committeeMenu() {
+    // 2: Display attendee menu
+    public static void attendeeMenu() {
+        System.out.println("Attendee Menu");
         System.out.println("====================");
-        System.out.println("1. Get list of all numbers");
-        System.out.println("2. Get the mean of all the numbers");
-        System.out.println("3. Get the median of all the numbers");
-        System.out.println("4. Get the mode (highest frequency) of all the numbers");
+        System.out.println("1. Get my details");
+        System.out.println("2. Edit my details");
+        System.out.println("3. Exit");
     }
 
     // 3: Option 3: Exit menu is in main
