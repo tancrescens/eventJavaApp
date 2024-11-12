@@ -1,13 +1,32 @@
 Events App
 
+- CRUD app
+	CRUD on either an object, resource or document (JSON)
+- CLI
+- Inheritance
+- Overridden Method
+- Interface or abstract base class
+==========================================================
+Core Functions
+Main function of this app is to allow
+1. committee members to create attendees' details
+2. attendees to edit their details
+
+
 Inheritance:
 1. Person (Parent/ abstract)
-	1. Attendee
-	2. Befrienders
+	1. Event Committee
+	2. Attendee
 	3. Helpers
-	4. Event Committee
+	4. Befrienders
 
-Person:
-	1. - firstname
-	2. - lastname
-	3. - IcNo
+
+	Person:
+		1. - firstname
+		2. - lastname
+		3. - IcNo
+	1. Event Committee
+	2. Attendee
+	3. Helpers
+	4. Befrienders
+
