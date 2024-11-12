@@ -13,7 +13,7 @@ public class Main {
             // implement the other options
             if (choice == 1) {
                 attendeeMenu();
-                int attendeeChoice = makeAChoice(sc, 1, 4);
+                int attendeeChoice = makeAChoice(sc, 1, 3);
                 if (attendeeChoice == 1) {
 
                 }
@@ -30,7 +30,7 @@ public class Main {
             }
             if (choice == 2) {
                 committeeMenu();
-                int attendeeChoice = makeAChoice(sc, 1, 4);
+                int attendeeChoice = makeAChoice(sc, 1, 6);
                 if (attendeeChoice == 1) {
 
                 }
@@ -54,6 +54,7 @@ public class Main {
 
     // Main Menu
     public static void displayMenu() {
+        System.out.println("");
         System.out.println("Main Menu");
         System.out.println("====================");
         System.out.println("1. Attendee Menu");
@@ -90,15 +91,18 @@ public class Main {
         System.out.println("3. Edit attendee's details");
         System.out.println("4. Delete attendee profile");
         System.out.println("5. Collate all attendees and committee members for insurance coverage");
+        System.out.println("6. Back to main menu");
+
     }
 
     // 2: Display attendee menu
     public static void attendeeMenu() {
+        System.out.println("");
         System.out.println("Attendee Menu");
         System.out.println("====================");
         System.out.println("1. Get my details");
         System.out.println("2. Edit my details");
-        System.out.println("3. Exit");
+        System.out.println("3. Back to main menu");
     }
 
     // 3: Option 3: Exit menu is in main
