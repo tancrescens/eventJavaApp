@@ -82,6 +82,7 @@ public class Main {
 
     // 1: Display Event committee menu
     public static void committeeMenu() {
+        System.out.println("");
         System.out.println("Event Committee Menu");
         System.out.println("====================");
         System.out.println("1. Get list of attendees");
