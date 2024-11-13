@@ -5,7 +5,7 @@ Events App
 - CLI
 - Inheritance
 - Overridden Method
-- Interface or abstract base class
+- Interface or abstract parent base class
 ==========================================================
 Core Functions
 Main function of this app is to allow
@@ -23,18 +23,14 @@ Main function of this app is to allow
 
 Inheritance:
 1. Person (Parent/ abstract)
-	1. Event Committee
-	2. Attendee
-	3. Helpers
-	4. Befrienders
+	1. Event Committee Members
+	2. Attendees
 
-
-	Person:
+	Person(Parent):
 		1. - firstname
 		2. - lastname
 		3. - IcNo
-	1. Event Committee
-	2. Attendee
-	3. Helpers
-	4. Befrienders
-
+	1. Event Committee Members
+		1. - taskforce
+	2. Attendees
+		1. - groupNo.
