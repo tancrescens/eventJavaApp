@@ -21,4 +21,10 @@ public class Attendee extends Person {
         this.groupNo = groupNo;
     }
 
+    // Methods
+    @Override
+    public void displayDetails() {
+        super.displayDetails();
+        System.out.println("Group Number: " + getGroupNo());
+    }
 }

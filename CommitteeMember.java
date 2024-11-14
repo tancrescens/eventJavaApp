@@ -22,4 +22,10 @@ public class CommitteeMember extends Person {
         this.taskforce = taskforce;
     }
 
+    // Methods
+    @Override
+    public void displayDetails() {
+        super.displayDetails();
+        System.out.println("Taskforce: " + getTaskforce());
+    }
 }

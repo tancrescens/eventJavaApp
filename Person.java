@@ -1,4 +1,4 @@
-public class Person {
+public abstract class Person {
     // Member Variables
     protected String firstname;
     protected String lastname;
@@ -40,6 +40,12 @@ public class Person {
 
     public void setIcNo(String icNo) {
         this.icNo = icNo;
+    }
+
+    // Methods
+    public void displayDetails() {
+        System.out.println("Name: " + getFirstname() + " " + getLastname());
+        System.out.println("IC Number: " + getIcNo());
     }
 
 }
