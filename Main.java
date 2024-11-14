@@ -3,7 +3,9 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        // Declaring the number list (for ) and scanner
+        // Declaring the Attendee, CommitteeMember list and Scanner
+        ArrayList<Attendee> attendeeList = new ArrayList<>();
+        ArrayList<CommitteeMember> CommitteeMemberList = new ArrayList<>();
         Scanner sc = new Scanner(System.in);
 
         // Main menu
@@ -21,7 +23,7 @@ public class Main {
                         getAttendeeList();
                     }
                     if (committeeChoice == 2) {
-                        createAttendeeProfile();
+                        createAttendeeProfile(attendeeList, sc);
                     }
                     if (committeeChoice == 3) {
                         editAttendeeProfile();
@@ -93,8 +95,19 @@ public class Main {
     }
 
     // 1.2: Create an attendee profile
-    public static void createAttendeeProfile() {
+    public static void createAttendeeProfile(ArrayList<Attendee> attendeeList, Scanner sc) {
         System.out.println("createAttendee()");
+        System.out.print("Please input attendee's first name: ");
+        String firstname = sc.nextLine();
+        System.out.print("Please input attendee's last name: ");
+        String lastname = sc.nextLine();
+        System.out.print("Please input attendee's IC number: ");
+        String icNo = sc.nextLine();
+
+        Attendee attendee = new Attendee(firstname, lastname, icNo, attendeeList.size() + 1);
+        attendeeList.add(attendee);
+        System.out.println("Attendee Profile successfully created!");
+        System.out.println("");
     }
 
     // 1.3: Edit attendee's details
