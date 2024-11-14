@@ -20,7 +20,7 @@ public class Main {
                     int committeeChoice = makeAChoice(sc, 1, 6);
 
                     if (committeeChoice == 1) {
-                        getAttendeeList();
+                        getAttendeeList(attendeeList);
                     }
                     if (committeeChoice == 2) {
                         createAttendeeProfile(attendeeList, sc);
@@ -90,8 +90,13 @@ public class Main {
     }
 
     // 1.1: Get list of attendees
-    public static void getAttendeeList() {
+    public static void getAttendeeList(ArrayList<Attendee> attendeeList) {
         System.out.println("getAttendeeList()");
+        for (int i = 0; i < attendeeList.size(); i++) {
+            System.out.println("=== " + (i + 1) + " ===");
+            attendeeList.get(i).displayDetails();
+            System.out.println("");
+        }
     }
 
     // 1.2: Create an attendee profile
