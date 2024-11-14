@@ -8,7 +8,8 @@ public class Attendee extends Person {
         this.groupNo = 0;
     }
 
-    public Attendee(Integer groupNo) {
+    public Attendee(String firstname, String lastname, String icNo, Integer groupNo) {
+        super(firstname, lastname, icNo);
         this.groupNo = groupNo;
     }
 
