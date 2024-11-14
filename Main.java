@@ -91,7 +91,7 @@ public class Main {
 
     // 1.1: Get list of attendees
     public static void getAttendeeList(ArrayList<Attendee> attendeeList) {
-        System.out.println("getAttendeeList()");
+        System.out.println("===== List of attendees =====");
         for (int i = 0; i < attendeeList.size(); i++) {
             System.out.println("=== " + (i + 1) + " ===");
             attendeeList.get(i).displayDetails();
@@ -101,7 +101,6 @@ public class Main {
 
     // 1.2: Create an attendee profile
     public static void createAttendeeProfile(ArrayList<Attendee> attendeeList, Scanner sc) {
-        System.out.println("createAttendee()");
         System.out.print("Please input attendee's first name: ");
         String firstname = sc.nextLine();
         System.out.print("Please input attendee's last name: ");
