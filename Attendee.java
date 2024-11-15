@@ -34,5 +34,15 @@ public class Attendee extends Person {
     @Override
     public void edit(Scanner sc) {
         super.edit(sc);
+        System.out.println("Enter the new group number or press [ENTER] to retain original group number");
+        String input = sc.nextLine();
+        if (!input.isEmpty()) { // Check if input is not empty
+            try {
+                int groupNo = Integer.parseInt(input); // Parse the input to an integer
+                setGroupNo(groupNo); // Update the group number
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Group number not updated.");
+            }
+        }
     }
 }
