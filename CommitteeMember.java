@@ -34,5 +34,8 @@ public class CommitteeMember extends Person {
     @Override
     public void edit(Scanner sc) {
         super.edit(sc);
+        System.out.println("Enter the new taskforce or press [ENTER] to retain original taskforce");
+        String taskforce = sc.nextLine();
+        setTaskforce(taskforce.length() > 0 ? taskforce : this.taskforce);
     }
 }
