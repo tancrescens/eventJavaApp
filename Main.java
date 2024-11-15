@@ -116,7 +116,6 @@ public class Main {
 
     // 1.3: Edit attendee's details
     public static void editAttendeeProfile(ArrayList<Attendee> attendeeList, Scanner sc) {
-        System.out.println("editAttendee()");
         System.out.println("Choose an attendee's profile to edit");
         getAttendeeList(attendeeList);
         int choice = makeAChoice(sc, 1, attendeeList.size());
@@ -129,11 +128,17 @@ public class Main {
     // 1.4: Delete attendee profile
     public static void deleteAttendeeProfile(ArrayList<Attendee> attendeeList, Scanner sc) {
         System.out.println("deleteAttendee()");
+        System.out.println("Choose an attendee's profile to delete");
+        getAttendeeList(attendeeList);
+        int choice = makeAChoice(sc, 1, attendeeList.size());
+
+        attendeeList.remove(choice - 1);
     }
 
     // 1.5: Collate all attendees and committee members for insurance coverage
     public static void insuranceCoverageList() {
         System.out.println("insuranceCoverageList(): Attendees and Committee implements insurance coverage()");
+
     }
     // 1.6: Exit to main menu is in main();
 
