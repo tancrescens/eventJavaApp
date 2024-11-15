@@ -48,10 +48,10 @@ public class Main {
                     // Attendee Menu
 
                     if (attendeeChoice == 1) {
-                        getAttendeeProfile(attendeeList, sc);
+                        attendeeGetAttendeeProfile(attendeeList, sc);
                     }
                     if (attendeeChoice == 2) {
-                        editAttendeeProfile(attendeeList, sc);
+                        attendeeEditAttendeeProfile(attendeeList, sc);
                     }
                     if (attendeeChoice == 3) {
                         break;
@@ -152,32 +152,21 @@ public class Main {
         System.out.println("3. Back to main menu");
     }
 
-    // 2.1: Get list of attendees
-    public static void getAttendeeProfile(ArrayList<Attendee> attendeeList, Scanner sc) {
-        System.out.println("getAttendeeList()");
-        System.out.print("What is your firstname?: ");
-        String firstname = sc.nextLine().trim();
-        System.out.print("What is your IC number?: ");
-        String icNo = sc.nextLine().trim();
-
-        boolean found = false;
-        for (Attendee attendee : attendeeList) {
-            if (attendee.getFirstname().equalsIgnoreCase(firstname) &&
-                    attendee.getIcNo().equals(icNo)) {
-                System.out.println("");
-                System.out.println("=== Profile selected ===");
-                attendee.displayDetails();
-                found = true;
-                break; // Exit loop after finding the first match
-            }
-        }
-        if (!found) {
-            System.out.println("Profile cannot be found.");
-        }
+    // 2.1: Let attendee see a profile by input: firstname and IC number
+    public static void attendeeGetAttendeeProfile(ArrayList<Attendee> attendeeList, Scanner sc) {
+        Attendee chosenAttendee = findAttendeeByInput(attendeeList, sc);
+        System.out.println("");
+        System.out.println("=== Attendee Profile ===");
+        chosenAttendee.displayDetails();
     }
 
-    // 2.2: Get list of attendees
-    // Declared above
+    // 2.2: Let attendee edit a profile by input: firstname and IC number
+    public static void attendeeEditAttendeeProfile(ArrayList<Attendee> attendeeList, Scanner sc) {
+        System.out.println("attendeeEditAttendeeProfile()");
+        Attendee chosenAttendee = findAttendeeByInput(attendeeList, sc);
+        chosenAttendee.edit(sc);
+
+    }
 
     // 3: Option 3: Exit to main menu is in main()
 
@@ -198,5 +187,25 @@ public class Main {
             }
         }
         return choice;
+    }
+
+    // Find attendee by input
+    public static Attendee findAttendeeByInput(ArrayList<Attendee> attendeeList, Scanner sc) {
+        System.out.print("What is your firstname?: ");
+        String firstname = sc.nextLine().trim();
+        System.out.print("What is your IC number?: ");
+        String icNo = sc.nextLine().trim();
+
+        for (Attendee attendee : attendeeList) {
+            if (attendee.getFirstname().equalsIgnoreCase(firstname) &&
+                    attendee.getIcNo().equals(icNo)) {
+                System.out.println("");
+                System.out.println("=== Profile selected ===");
+                return attendee;
+            }
+        }
+
+        System.out.println("Profile cannot be found.");
+        return null;
     }
 }
