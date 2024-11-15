@@ -48,7 +48,7 @@ public class Main {
                     // Attendee Menu
 
                     if (attendeeChoice == 1) {
-                        getAttendeeProfile();
+                        getAttendeeProfile(attendeeList, sc);
                     }
                     if (attendeeChoice == 2) {
                         editAttendeeProfile(attendeeList, sc);
@@ -153,8 +153,27 @@ public class Main {
     }
 
     // 2.1: Get list of attendees
-    public static void getAttendeeProfile() {
+    public static void getAttendeeProfile(ArrayList<Attendee> attendeeList, Scanner sc) {
         System.out.println("getAttendeeList()");
+        System.out.print("What is your firstname?: ");
+        String firstname = sc.nextLine().trim();
+        System.out.print("What is your IC number?: ");
+        String icNo = sc.nextLine().trim();
+
+        boolean found = false;
+        for (Attendee attendee : attendeeList) {
+            if (attendee.getFirstname().equalsIgnoreCase(firstname) &&
+                    attendee.getIcNo().equals(icNo)) {
+                System.out.println("");
+                System.out.println("=== Profile selected ===");
+                attendee.displayDetails();
+                found = true;
+                break; // Exit loop after finding the first match
+            }
+        }
+        if (!found) {
+            System.out.println("Profile cannot be found.");
+        }
     }
 
     // 2.2: Get list of attendees
