@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Attendee extends Person {
     // Member Variables
     private Integer groupNo;
@@ -27,5 +29,10 @@ public class Attendee extends Person {
     public void displayDetails() {
         super.displayDetails();
         System.out.println("Group Number: " + getGroupNo());
+    }
+
+    @Override
+    public void edit(Scanner sc) {
+        super.edit(sc);
     }
 }

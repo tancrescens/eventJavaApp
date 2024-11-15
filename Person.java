@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public abstract class Person {
     // Member Variables
     protected String firstname;
@@ -46,6 +48,20 @@ public abstract class Person {
     public void displayDetails() {
         System.out.println("Name: " + getFirstname() + " " + getLastname());
         System.out.println("IC Number: " + getIcNo());
+    }
+
+    public void edit(Scanner sc) {
+        System.out.println("Enter the new first name or press [ENTER] to retain original first name");
+        String firstname = sc.nextLine();
+        setFirstname(firstname.length() > 0 ? firstname : this.firstname);
+
+        System.out.println("Enter the new last name or press [ENTER] to retain original last name");
+        String lastname = sc.nextLine();
+        setLastname(lastname.length() > 0 ? lastname : this.lastname);
+
+        System.out.println("Enter the new IC Number or press [ENTER] to retain original IC Number");
+        String icNo = sc.nextLine();
+        setIcNo(icNo.length() > 0 ? icNo : this.icNo);
     }
 
 }

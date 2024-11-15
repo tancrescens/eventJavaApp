@@ -26,10 +26,10 @@ public class Main {
                         createAttendeeProfile(attendeeList, sc);
                     }
                     if (committeeChoice == 3) {
-                        editAttendeeProfile();
+                        editAttendeeProfile(attendeeList, sc);
                     }
                     if (committeeChoice == 4) {
-                        deleteAttendeeProfile();
+                        deleteAttendeeProfile(attendeeList, sc);
                     }
                     if (committeeChoice == 5) {
                         insuranceCoverageList();
@@ -51,7 +51,7 @@ public class Main {
                         getAttendeeProfile();
                     }
                     if (attendeeChoice == 2) {
-                        editAttendeeProfile();
+                        editAttendeeProfile(attendeeList, sc);
                     }
                     if (attendeeChoice == 3) {
                         break;
@@ -115,12 +115,19 @@ public class Main {
     }
 
     // 1.3: Edit attendee's details
-    public static void editAttendeeProfile() {
+    public static void editAttendeeProfile(ArrayList<Attendee> attendeeList, Scanner sc) {
         System.out.println("editAttendee()");
+        System.out.println("Choose an attendee's profile to edit");
+        getAttendeeList(attendeeList);
+        int choice = makeAChoice(sc, 1, attendeeList.size());
+
+        Attendee chosenAttendeeProfile = attendeeList.get(choice - 1);
+        chosenAttendeeProfile.edit(sc);
+
     }
 
     // 1.4: Delete attendee profile
-    public static void deleteAttendeeProfile() {
+    public static void deleteAttendeeProfile(ArrayList<Attendee> attendeeList, Scanner sc) {
         System.out.println("deleteAttendee()");
     }
 

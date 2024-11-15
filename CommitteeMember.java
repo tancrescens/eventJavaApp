@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class CommitteeMember extends Person {
     // Member variables
     private String taskforce;
@@ -27,5 +29,10 @@ public class CommitteeMember extends Person {
     public void displayDetails() {
         super.displayDetails();
         System.out.println("Taskforce: " + getTaskforce());
+    }
+
+    @Override
+    public void edit(Scanner sc) {
+        super.edit(sc);
     }
 }
