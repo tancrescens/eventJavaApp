@@ -6,8 +6,9 @@ public class Main {
     public static void main(String[] args) {
         // Declaring the Attendee, CommitteeMember list and Scanner
         Scanner sc = new Scanner(System.in);
+
         ArrayList<Attendee> attendeeList = new ArrayList<>();
-        List<CommitteeMember> committeeMembers = new ArrayList<>();
+        ArrayList<CommitteeMember> committeeMembers = new ArrayList<>();
         committeeMembers.add(new CommitteeMember("Andrew", "Tay", "S99123456A", "Logistics"));
         committeeMembers.add(new CommitteeMember("Bernard", "Koh", "S98123456A", "Finance"));
         committeeMembers.add(new CommitteeMember("Calista", "Tan", "S97123456A", "Admin"));
@@ -74,15 +75,16 @@ public class Main {
                     // Attendee Menu
 
                     if (adminChoice == 1) {
-
+                        getCommitteeMemberList(committeeMembers);
                     }
                     if (adminChoice == 2) {
-
+                        createCommitteeMemberProfile(committeeMembers, sc);
                     }
                     if (adminChoice == 3) {
-
+                        editCommitteeMemberProfile(committeeMembers, sc);
                     }
                     if (adminChoice == 4) {
+                        deleteCommitteeMemberProfile(committeeMembers, sc);
                     }
 
                     if (adminChoice == 5) {
@@ -218,48 +220,50 @@ public class Main {
     };
 
     // 3.1: Get list of committee members
-    public static void getCommitteeMemberList(ArrayList<Attendee> attendeeList) {
+    public static void getCommitteeMemberList(List<CommitteeMember> committeeMembers) {
         System.out.println("===== List of committee members =====");
-        for (int i = 0; i < attendeeList.size(); i++) {
+        for (int i = 0; i < committeeMembers.size(); i++) {
             System.out.println("=== " + (i + 1) + " ===");
-            attendeeList.get(i).displayDetails();
+            committeeMembers.get(i).displayDetails();
             System.out.println("");
         }
     }
 
     // 3.2: Create a committee member profile
-    public static void createCommitteeMemberProfile(ArrayList<Attendee> attendeeList, Scanner sc) {
+    public static void createCommitteeMemberProfile(List<CommitteeMember> committeeMembers, Scanner sc) {
         System.out.print("Please input committee member's first name: ");
         String firstname = sc.nextLine();
         System.out.print("Please input committee member's last name: ");
         String lastname = sc.nextLine();
         System.out.print("Please input committee member's IC number: ");
         String icNo = sc.nextLine();
+        System.out.print("Please input committee member's taskforce: ");
+        String taskforce = sc.nextLine();
 
-        Attendee attendee = new Attendee(firstname, lastname, icNo, attendeeList.size() + 1);
-        attendeeList.add(attendee);
-        System.out.println("Committee member profile successfully created!");
+        CommitteeMember newCommitteeMember = new CommitteeMember(firstname, lastname, icNo, taskforce);
+        committeeMembers.add(newCommitteeMember);
+        System.out.println("Committee Member profile successfully created!");
         System.out.println("");
     }
 
     // 3.3: Edit a committee member's details
-    public static void editCommitteeMemberProfile(ArrayList<Attendee> attendeeList, Scanner sc) {
+    public static void editCommitteeMemberProfile(List<CommitteeMember> committeeMembers, Scanner sc) {
         System.out.println("Choose a committee member's profile to edit");
-        getAttendeeList(attendeeList);
-        int choice = makeAChoice(sc, 1, attendeeList.size());
+        getCommitteeMemberList(committeeMembers);
+        int choice = makeAChoice(sc, 1, committeeMembers.size());
 
-        Attendee chosenAttendeeProfile = attendeeList.get(choice - 1);
-        chosenAttendeeProfile.edit(sc);
-
+        CommitteeMember chosenCommitteeMember = committeeMembers.get(choice - 1);
+        chosenCommitteeMember.edit(sc);
     }
 
     // 3.4: Delete a committee member's profile
-    public static void deleteCommitteeMemberProfile(ArrayList<Attendee> attendeeList, Scanner sc) {
-        System.out.println("Choose an committee member's profile to delete");
-        getAttendeeList(attendeeList);
-        int choice = makeAChoice(sc, 1, attendeeList.size());
+    public static void deleteCommitteeMemberProfile(List<CommitteeMember> committeeMembers, Scanner sc) {
+        System.out.println("Choose a committee member's profile to delete");
+        getCommitteeMemberList(committeeMembers);
+        int choice = makeAChoice(sc, 1, committeeMembers.size());
 
-        attendeeList.remove(choice - 1);
+        committeeMembers.remove(choice - 1);
+        System.out.println("Committee Member profile successfully deleted!");
     }
 
     // 3.5: Collate all attendees and committee members for insurance coverage
