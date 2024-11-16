@@ -1,12 +1,19 @@
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         // Declaring the Attendee, CommitteeMember list and Scanner
-        ArrayList<Attendee> attendeeList = new ArrayList<>();
-        ArrayList<CommitteeMember> CommitteeMemberList = new ArrayList<>();
         Scanner sc = new Scanner(System.in);
+        ArrayList<Attendee> attendeeList = new ArrayList<>();
+        List<CommitteeMember> committeeMembers = new ArrayList<>();
+        committeeMembers.add(new CommitteeMember("Andrew", "Tay", "S99123456A", "Logistics"));
+        committeeMembers.add(new CommitteeMember("Bernard", "Koh", "S98123456A", "Finance"));
+        committeeMembers.add(new CommitteeMember("Calista", "Tan", "S97123456A", "Admin"));
+        committeeMembers.add(new CommitteeMember("Dusty", "Poh", "S96123456A", "Events"));
+        committeeMembers.add(new CommitteeMember("Ellie", "Yeoh", "S95123456A", "Food"));
+        committeeMembers.add(new CommitteeMember("Fernando", "Lee", "S94123456A", "Facilities"));
 
         // Main menu
         while (true) {
@@ -38,8 +45,8 @@ public class Main {
                         break;
                     }
                 }
+            } // end option 1
 
-            }
             // Main Menu option 2: Attendee Menu
             if (choice == 2) {
                 while (true) {
@@ -57,12 +64,13 @@ public class Main {
                         break;
                     }
                 }
-            }
+            } // end option 2
+
             // Main Menu option 3: Admin Menu
             if (choice == 3) {
                 while (true) {
                     adminMenu();
-                    int adminChoice = makeAChoice(sc, 1, 3);
+                    int adminChoice = makeAChoice(sc, 1, 6);
                     // Attendee Menu
 
                     if (adminChoice == 1) {
@@ -75,22 +83,24 @@ public class Main {
 
                     }
                     if (adminChoice == 4) {
+                    }
 
-                        if (adminChoice == 5) {
-                            insuranceCoverageList();
-                        }
-                        if (adminChoice == 6) {
-                            break;
-                        }
+                    if (adminChoice == 5) {
+                        insuranceCoverageList();
+                    }
+
+                    if (adminChoice == 6) {
+                        break;
                     }
                 }
-                // Main Menu option 4: Exit Main Menu
-                if (choice == 4) {
-                    break;
-                }
+            } // end option 3
+
+            // Main Menu option 4: Exit Main Menu
+            if (choice == 4) {
+                break;
             }
-            System.out.println("Goodbye!");
         }
+        System.out.println("Goodbye!");
     }
 
     // Main Menu
@@ -100,7 +110,8 @@ public class Main {
         System.out.println("====================");
         System.out.println("1. Event Committee Menu");
         System.out.println("2. Attendee Menu");
-        System.out.println("3. Exit program");
+        System.out.println("3. Admin Menu");
+        System.out.println("4. Exit program");
     }
 
     // 1: Display Event committee menu
