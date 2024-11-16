@@ -11,7 +11,7 @@ public class Main {
         // Main menu
         while (true) {
             displayMenu();
-            int choice = makeAChoice(sc, 1, 3);
+            int choice = makeAChoice(sc, 1, 4);
 
             // Main Menu option 1: Committee Member Menu
             if (choice == 1) {
@@ -58,12 +58,39 @@ public class Main {
                     }
                 }
             }
-            // Main Menu option 3: Exit Main Menu
+            // Main Menu option 3: Admin Menu
             if (choice == 3) {
-                break;
+                while (true) {
+                    adminMenu();
+                    int adminChoice = makeAChoice(sc, 1, 3);
+                    // Attendee Menu
+
+                    if (adminChoice == 1) {
+
+                    }
+                    if (adminChoice == 2) {
+
+                    }
+                    if (adminChoice == 3) {
+
+                    }
+                    if (adminChoice == 4) {
+
+                        if (adminChoice == 5) {
+                            insuranceCoverageList();
+                        }
+                        if (adminChoice == 6) {
+                            break;
+                        }
+                    }
+                }
+                // Main Menu option 4: Exit Main Menu
+                if (choice == 4) {
+                    break;
+                }
             }
+            System.out.println("Goodbye!");
         }
-        System.out.println("Goodbye!");
     }
 
     // Main Menu
@@ -127,7 +154,6 @@ public class Main {
 
     // 1.4: Delete attendee profile
     public static void deleteAttendeeProfile(ArrayList<Attendee> attendeeList, Scanner sc) {
-        System.out.println("deleteAttendee()");
         System.out.println("Choose an attendee's profile to delete");
         getAttendeeList(attendeeList);
         int choice = makeAChoice(sc, 1, attendeeList.size());
@@ -162,14 +188,75 @@ public class Main {
 
     // 2.2: Let attendee edit a profile by input: firstname and IC number
     public static void attendeeEditAttendeeProfile(ArrayList<Attendee> attendeeList, Scanner sc) {
-        System.out.println("attendeeEditAttendeeProfile()");
         Attendee chosenAttendee = findAttendeeByInput(attendeeList, sc);
         chosenAttendee.edit(sc);
 
     }
 
-    // 3: Option 3: Exit to main menu is in main()
+    // 3: Display attendee menu
+    public static void adminMenu() {
+        System.out.println("");
+        System.out.println("Admin Menu");
+        System.out.println("====================");
+        System.out.println("1. Get list of committee members");
+        System.out.println("2. Create a committee member profile");
+        System.out.println("3. Edit committee member's details");
+        System.out.println("4. Delete committee member profile");
+        System.out.println("5. Collate all attendees and committee members for insurance coverage");
+        System.out.println("6. Back to main menu");
+    };
 
+    // 3.1: Get list of committee members
+    public static void getCommitteeMemberList(ArrayList<Attendee> attendeeList) {
+        System.out.println("===== List of committee members =====");
+        for (int i = 0; i < attendeeList.size(); i++) {
+            System.out.println("=== " + (i + 1) + " ===");
+            attendeeList.get(i).displayDetails();
+            System.out.println("");
+        }
+    }
+
+    // 3.2: Create a committee member profile
+    public static void createCommitteeMemberProfile(ArrayList<Attendee> attendeeList, Scanner sc) {
+        System.out.print("Please input committee member's first name: ");
+        String firstname = sc.nextLine();
+        System.out.print("Please input committee member's last name: ");
+        String lastname = sc.nextLine();
+        System.out.print("Please input committee member's IC number: ");
+        String icNo = sc.nextLine();
+
+        Attendee attendee = new Attendee(firstname, lastname, icNo, attendeeList.size() + 1);
+        attendeeList.add(attendee);
+        System.out.println("Committee member profile successfully created!");
+        System.out.println("");
+    }
+
+    // 3.3: Edit a committee member's details
+    public static void editCommitteeMemberProfile(ArrayList<Attendee> attendeeList, Scanner sc) {
+        System.out.println("Choose a committee member's profile to edit");
+        getAttendeeList(attendeeList);
+        int choice = makeAChoice(sc, 1, attendeeList.size());
+
+        Attendee chosenAttendeeProfile = attendeeList.get(choice - 1);
+        chosenAttendeeProfile.edit(sc);
+
+    }
+
+    // 3.4: Delete a committee member's profile
+    public static void deleteCommitteeMemberProfile(ArrayList<Attendee> attendeeList, Scanner sc) {
+        System.out.println("Choose an committee member's profile to delete");
+        getAttendeeList(attendeeList);
+        int choice = makeAChoice(sc, 1, attendeeList.size());
+
+        attendeeList.remove(choice - 1);
+    }
+
+    // 3.5: Collate all attendees and committee members for insurance coverage
+    // definded in 1.5
+
+    // 4: Exit to main menu is in main()
+
+    // Other functions
     // make a choice function
     public static Integer makeAChoice(Scanner sc, int lowerBound, int upperBound) {
         int choice;
